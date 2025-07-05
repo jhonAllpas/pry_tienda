@@ -5,62 +5,25 @@ package CapaDatos;
  *
  * @author Jhon Allpas
  */
-public class M_Cliente {
-    private String codigo;
-    private String apellidos;
-    private String nombres;
-    private String dni;
+public class M_Cliente extends M_Persona {
     private String ruc;
-    private int edad;
     private String sexo;
-    private String telefono;
-    private String direccion;
+    private int edad;
 
     public M_Cliente() {
     }
 
-    public M_Cliente(String codigo, String apellidos, String nombres, String dni, String ruc, int edad, String sexo, String telefono, String direccion) {
-        this.codigo = codigo;
-        this.apellidos = apellidos;
-        this.nombres = nombres;
-        this.dni = dni;
+    public M_Cliente(String ruc, String sexo, int edad) {
         this.ruc = ruc;
-        this.edad = edad;
         this.sexo = sexo;
-        this.telefono = telefono;
-        this.direccion = direccion;
+        this.edad = edad;
     }
 
-    public String getCodigo() {
-        return codigo;
-    }
-
-    public void setCodigo(String codigo) {
-        this.codigo = codigo;
-    }
-
-    public String getApellidos() {
-        return apellidos;
-    }
-
-    public void setApellidos(String apellidos) {
-        this.apellidos = apellidos;
-    }
-
-    public String getNombres() {
-        return nombres;
-    }
-
-    public void setNombres(String nombres) {
-        this.nombres = nombres;
-    }
-
-    public String getDni() {
-        return dni;
-    }
-
-    public void setDni(String dni) {
-        this.dni = dni;
+    public M_Cliente(String ruc, String sexo, int edad, String id, String nombre, String apellidos, String dni, String telefono, String direccion) {
+        super(id, nombre, apellidos, dni, telefono, direccion);
+        this.ruc = ruc;
+        this.sexo = sexo;
+        this.edad = edad;
     }
 
     public String getRuc() {
@@ -71,14 +34,6 @@ public class M_Cliente {
         this.ruc = ruc;
     }
 
-    public int getEdad() {
-        return edad;
-    }
-
-    public void setEdad(int edad) {
-        this.edad = edad;
-    }
-
     public String getSexo() {
         return sexo;
     }
@@ -87,23 +42,14 @@ public class M_Cliente {
         this.sexo = sexo;
     }
 
-    public String getTelefono() {
-        return telefono;
+    public int getEdad() {
+        return edad;
     }
 
-    public void setTelefono(String telefono) {
-        this.telefono = telefono;
-    }
-
-    public String getDireccion() {
-        return direccion;
-    }
-
-    public void setDireccion(String direccion) {
-        this.direccion = direccion;
+    public void setEdad(int edad) {
+        this.edad = edad;
     }
     
-     
     
-    
+        
 }

@@ -13,7 +13,7 @@ import java.sql.SQLException;
  *
  * @author Jhon Allpas
  */
-public class N_Cliente {
+public class N_Cliente implements IN_Cliente{
     private Conexion SQL = new Conexion();
     private Connection cn = SQL.conectar();
     String sql="";
@@ -53,8 +53,8 @@ public class N_Cliente {
         sql=("{call sp_guardar_clientes (?,?,?,?,?,?,?,?,?)}");
         try{
             PreparedStatement pst=cn.prepareStatement(sql);
-            pst.setString(1,dts.getCodigo());
-            pst.setString(2,dts.getNombres());
+            pst.setString(1,dts.getId());
+            pst.setString(2,dts.getNombre());
             pst.setString(3,dts.getApellidos());
             pst.setString(4,dts.getDni());
             pst.setString(5,dts.getRuc());
@@ -82,8 +82,8 @@ public class N_Cliente {
         sql=("{call sp_editar_clientes (?,?,?,?,?,?,?,?,?)}");
         try{
             PreparedStatement pst=cn.prepareStatement(sql);
-            pst.setString(1,dts.getCodigo());
-            pst.setString(2,dts.getNombres());
+            pst.setString(1,dts.getId());
+            pst.setString(2,dts.getNombre());
             pst.setString(3,dts.getApellidos());
             pst.setString(4,dts.getDni());
             pst.setString(5,dts.getRuc());
@@ -111,7 +111,7 @@ public class N_Cliente {
         
         try{
             PreparedStatement pst = cn.prepareStatement(sql);
-            pst.setString(1,dts.getCodigo());
+            pst.setString(1,dts.getId());
             
             int n = pst.executeUpdate();
             if(n!=0){
@@ -139,5 +139,25 @@ public class N_Cliente {
         }
         return cod;
         
+    }
+
+    @Override
+    public boolean modificar(M_Cliente dts) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public boolean eliminar(int id) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public M_Cliente buscar(int id) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public DefaultTableModel listar() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 }

@@ -13,7 +13,7 @@ import java.sql.SQLException;
 public class Conexion {
     static Connection conn=null;
     public static Connection conectar(){
-        String url ="jdbc:sqlserver://localhost\\DESKTOP-R99KJO6\\SQLEXPRESS:1433;databaseName=db_ventas;encrypt=true;trustServerCertificate=true";
+        String url ="jdbc:sqlserver://localhost\\BENZUM\\SQLEXPRESS:50999;databaseName=db_ventas;encrypt=true;trustServerCertificate=true";
         try{
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
         } catch (ClassNotFoundException e) {

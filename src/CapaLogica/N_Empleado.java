@@ -10,7 +10,7 @@ import java.sql.ResultSet;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-public class N_Empleado {
+public class N_Empleado implements IN_Empleado{
     private Conexion SQL = new Conexion();
     private Connection cn = SQL.conectar();
     String sql="";
@@ -46,7 +46,7 @@ public class N_Empleado {
         sql=("{call sp_guardar_empleados (?,?,?,?,?,?)}");
         try{
             PreparedStatement pst=cn.prepareStatement(sql);
-            pst.setString(1,dts.getIdempleado());
+            pst.setString(1,dts.getId());
             pst.setString(2,dts.getNombre());
             pst.setString(3,dts.getApellidos());
             pst.setString(4,dts.getDni());
@@ -71,7 +71,7 @@ public class N_Empleado {
         sql=("{call sp_editar_empleados (?,?,?,?,?,?)}");
         try{
             PreparedStatement pst=cn.prepareStatement(sql);
-            pst.setString(1,dts.getIdempleado());
+            pst.setString(1,dts.getId());
             pst.setString(2,dts.getNombre());
             pst.setString(3,dts.getApellidos());
             pst.setString(4,dts.getDni());
@@ -95,7 +95,7 @@ public class N_Empleado {
         sql=("{call sp_eliminar_empleado (?)}");
         try{
             PreparedStatement pst=cn.prepareStatement(sql);
-            pst.setString(1,dts.getIdempleado());
+            pst.setString(1,dts.getId());
                         
             int n = pst.executeUpdate();
             
@@ -125,5 +125,25 @@ public class N_Empleado {
         }
         return cod;
         
+    }
+
+    @Override
+    public boolean modificar(M_Empleado dts) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public boolean eliminar(int id) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public M_Empleado buscar(int id) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public DefaultTableModel listar() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 }

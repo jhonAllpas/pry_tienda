@@ -12,7 +12,7 @@ import java.sql.SQLException;
  *
  * @author Jhon Allpas
  */
-public class N_Proveedor {
+public class N_Proveedor implements IN_Proveedor{
     private Conexion SQL=new Conexion();
     private Connection cn = SQL.conectar();
     String sql="";
@@ -124,6 +124,26 @@ public class N_Proveedor {
         }
         return cod;
      }
+
+    @Override
+    public boolean modificar(M_Proveedor dts) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public boolean eliminar(int id) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public DefaultTableModel listar() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public M_Proveedor buscar(int id) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
      
 }
     

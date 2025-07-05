@@ -3,9 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Jhon%20Allpas/Documents/NetBeansProjects/ventas/src/CapaLogica/Conexion.java</file>
-            <file>file:/C:/Users/Jhon%20Allpas/Documents/NetBeansProjects/ventas/src/CapaPresentacion/FrmProducto.java</file>
-            <file>file:/C:/Users/Jhon%20Allpas/Documents/NetBeansProjects/ventas/src/CapaDatos/M_Empleado.java</file>
+            <file>file:/C:/Users/benja/Documents/ProyectosExternos/Jhon/pry_tienda/src/CapaPresentacion/FrameIntProducto.java</file>
+            <file>file:/C:/Users/benja/Documents/ProyectosExternos/Jhon/pry_tienda/src/CapaPresentacion/FrameIntUsuarios.java</file>
+            <file>file:/C:/Users/benja/Documents/ProyectosExternos/Jhon/pry_tienda/src/CapaPresentacion/FrameIntVenta.java</file>
+            <file>file:/C:/Users/benja/Documents/ProyectosExternos/Jhon/pry_tienda/src/CapaLogica/N_Usuario.java</file>
+            <file>file:/C:/Users/benja/Documents/ProyectosExternos/Jhon/pry_tienda/src/CapaLogica/IN_Usuario.java</file>
+            <file>file:/C:/Users/benja/Documents/ProyectosExternos/Jhon/pry_tienda/src/CapaLogica/N_Empleado.java</file>
         </group>
     </open-files>
 </project-private>
