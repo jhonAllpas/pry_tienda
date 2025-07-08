@@ -29,6 +29,7 @@ private Connection cn=SQL.conectar();
 int contador=0;
 private String accion="guardar";
 
+
     /**
      * Creates new form FrameIntProducto
      */
@@ -72,7 +73,6 @@ private void cargar_categoria(){
             ResultSet rs = st.executeQuery(sql);
             while(rs.next()){
                 cbocategoria.addItem(rs.getString("descripcion"));
-                
             }
             contador++;
         }catch (SQLException ex){
@@ -464,6 +464,7 @@ void generarid(){
         dts.setF_vencimiento(new Date(cal.getTimeInMillis()));
         dts.setIdcategoria(Integer.parseInt(txtidcategoria.getText()));
         dts.setNombre(txtproducto.getText());
+      
 
         if (accion.equals("guardar")){
             if (func.insertar(dts)){
@@ -524,7 +525,18 @@ void generarid(){
         dcfecha_vencimiento.setDate(java.sql.Date.valueOf(tablalistado.getValueAt(fila, 4).toString()));
         txtpreciocompra.setText(tablalistado.getValueAt(fila,5).toString());
         txtprecioventa.setText(tablalistado.getValueAt(fila,6).toString());
-        txtidcategoria.setText(tablalistado.getValueAt(fila,7).toString());
+        try{
+            Statement st = cn.createStatement();
+            if (contador >=0){
+                String sql="select * from categoria where descripcion='"+ cbocategoria.getSelectedItem()+"'";
+                ResultSet rs=st.executeQuery(sql);
+                rs.next();
+                this.txtidcategoria.setText(String.valueOf(rs.getInt("idcategoria")));
+                cbocategoria.setSelectedIndex(rs.getInt("idcategoria"));
+            }
+        }catch (Exception e){
+            JOptionPane.showMessageDialog(null, e);
+        }
         cbocategoria.setSelectedItem(tablalistado.getValueAt(fila, 8).toString());
     }//GEN-LAST:event_tablalistadoMouseClicked
 

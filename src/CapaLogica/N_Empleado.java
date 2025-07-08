@@ -9,6 +9,7 @@ import javax.swing.JOptionPane;
 import java.sql.ResultSet;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.util.UUID;
 
 public class N_Empleado implements IN_Empleado{
     private Conexion SQL = new Conexion();
@@ -110,19 +111,12 @@ public class N_Empleado implements IN_Empleado{
             return false;
         }
     }
-    public int generarIdEmpleado(){
-        String sql=("select max(idempleado) as id from empleados");
-        int cod=0;
-        
-        try{
-            Statement st = cn.createStatement();
-            ResultSet rs = st.executeQuery(sql);
-            if(rs.next()){
-                cod=rs.getInt("id")+1;
-            }
-        }catch (SQLException el){
-           JOptionPane.showConfirmDialog(null, el);
-        }
+    public String generarIdEmpleado(){
+//        String sql=("select max(idempleado) as id from empleados");
+        String cod = null;
+        UUID uuid = UUID.randomUUID();
+        String uuidString = uuid.toString();
+        cod = uuidString.substring(0,5);
         return cod;
         
     }

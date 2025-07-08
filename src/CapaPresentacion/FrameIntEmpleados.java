@@ -75,11 +75,10 @@ private String accion="guardar";
     txttelefono.setText("");
     txtdireccion.setText("");
 }
-    private void generarId(){
-    N_Empleado func = new N_Empleado();
-    DecimalFormat formato = new DecimalFormat("0000");
-    txtidempleado.setText(formato.format(func.generarIdEmpleado()));
-}
+    private void generarId(){    
+        N_Empleado func = new N_Empleado();
+        txtidempleado.setText(func.generarIdEmpleado());
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -344,7 +343,6 @@ private String accion="guardar";
             txtapellidos.requestFocus();
             return;
         }
-
         if(txttelefono.getText().length()==0){
             JOptionPane.showConfirmDialog(rootPane,"Ingrese teléfono del empleado");
             txttelefono.requestFocus();
