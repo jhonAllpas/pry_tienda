@@ -58,6 +58,11 @@ public class JFrameVentas extends javax.swing.JFrame {
         jMenu2.setText("Inicio");
 
         jMenuItemNuevaVenta.setText("Nueva Venta");
+        jMenuItemNuevaVenta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemNuevaVentaActionPerformed(evt);
+            }
+        });
         jMenu2.add(jMenuItemNuevaVenta);
 
         jMenuItemRevisarVentas.setText("Revisar Ventas");
@@ -207,6 +212,17 @@ public class JFrameVentas extends javax.swing.JFrame {
         this.revalidate();
         this.repaint();
     }//GEN-LAST:event_jMenuItemUsuariosActionPerformed
+
+    private void jMenuItemNuevaVentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemNuevaVentaActionPerformed
+        // TODO add your handling code here:
+          FrameIntVenta frame = new FrameIntVenta();
+        frame.setSize(695,502);
+        frame.setLocation(10,10);
+        frame.setVisible(true);
+        this.add(frame);
+        this.revalidate();
+        this.repaint();
+    }//GEN-LAST:event_jMenuItemNuevaVentaActionPerformed
 
     /**
      * @param args the command line arguments

@@ -6,7 +6,7 @@ package CapaDatos;
 
 /**
  *
- * @author benja
+ * @author Jhon Allpas
  */
 public class M_Persona {
     

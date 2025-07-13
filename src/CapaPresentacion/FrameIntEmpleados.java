@@ -77,7 +77,9 @@ private String accion="guardar";
 }
     private void generarId(){    
         N_Empleado func = new N_Empleado();
-        txtidempleado.setText(func.generarIdEmpleado());
+        DecimalFormat formato = new DecimalFormat("0000");
+        txtidempleado.setText(formato.format(func.generarIdEmpleado()));
+        
     }
     /**
      * This method is called from within the constructor to initialize the form.
