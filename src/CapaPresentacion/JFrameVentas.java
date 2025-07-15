@@ -4,19 +4,22 @@
  */
 package CapaPresentacion;
 
+import CapaDatos.M_Usuario;
+import CapaLogica.N_Compra;
+
 /**
  *
  * @author benja
  */
 public class JFrameVentas extends javax.swing.JFrame {
-
+    public M_Usuario current_user; 
     /**
      * Creates new form JFrameVentas
      */
     public JFrameVentas() {
         initComponents();
     }
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -34,6 +37,8 @@ public class JFrameVentas extends javax.swing.JFrame {
         jMenu2 = new javax.swing.JMenu();
         jMenuItemNuevaVenta = new javax.swing.JMenuItem();
         jMenuItemRevisarVentas = new javax.swing.JMenuItem();
+        jMenuItemNuevaCompra = new javax.swing.JMenuItem();
+        jMenuItemRevisarCompras = new javax.swing.JMenuItem();
         jMenu1 = new javax.swing.JMenu();
         jMenuItemClientes = new javax.swing.JMenuItem();
         jMenuItemProductos = new javax.swing.JMenuItem();
@@ -66,7 +71,28 @@ public class JFrameVentas extends javax.swing.JFrame {
         jMenu2.add(jMenuItemNuevaVenta);
 
         jMenuItemRevisarVentas.setText("Revisar Ventas");
+        jMenuItemRevisarVentas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemRevisarVentasActionPerformed(evt);
+            }
+        });
         jMenu2.add(jMenuItemRevisarVentas);
+
+        jMenuItemNuevaCompra.setText("Nueva Compra");
+        jMenuItemNuevaCompra.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemNuevaCompraActionPerformed(evt);
+            }
+        });
+        jMenu2.add(jMenuItemNuevaCompra);
+
+        jMenuItemRevisarCompras.setText("Revisar Compras");
+        jMenuItemRevisarCompras.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemRevisarComprasActionPerformed(evt);
+            }
+        });
+        jMenu2.add(jMenuItemRevisarCompras);
 
         jMenuBar1.add(jMenu2);
 
@@ -216,6 +242,7 @@ public class JFrameVentas extends javax.swing.JFrame {
     private void jMenuItemNuevaVentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemNuevaVentaActionPerformed
         // TODO add your handling code here:
           FrameIntVenta frame = new FrameIntVenta();
+          frame.current_usuario = current_user;
         frame.setSize(695,502);
         frame.setLocation(10,10);
         frame.setVisible(true);
@@ -223,6 +250,34 @@ public class JFrameVentas extends javax.swing.JFrame {
         this.revalidate();
         this.repaint();
     }//GEN-LAST:event_jMenuItemNuevaVentaActionPerformed
+
+    private void jMenuItemRevisarVentasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemRevisarVentasActionPerformed
+        // TODO add your handling code here:
+        FrameIntMostrarVentas frame = new FrameIntMostrarVentas();
+        frame.setBounds(10,10,800,356);
+        frame.setVisible(true);
+        this.add(frame);
+    }//GEN-LAST:event_jMenuItemRevisarVentasActionPerformed
+
+    private void jMenuItemNuevaCompraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemNuevaCompraActionPerformed
+        // TODO add your handling code here:
+        FrameIntCompra frame = new FrameIntCompra();
+        frame.current_usuario = current_user;
+        frame.setSize(695,502);
+        frame.setLocation(10,10);
+        frame.setVisible(true);
+        this.add(frame);
+        this.revalidate();
+        this.repaint();
+    }//GEN-LAST:event_jMenuItemNuevaCompraActionPerformed
+
+    private void jMenuItemRevisarComprasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemRevisarComprasActionPerformed
+        // TODO add your handling code here:
+        FrameIntMostrarCompras frame = new FrameIntMostrarCompras();
+        frame.setBounds(10,10,800,356);
+        frame.setVisible(true);
+        this.add(frame);
+    }//GEN-LAST:event_jMenuItemRevisarComprasActionPerformed
 
     /**
      * @param args the command line arguments
@@ -273,9 +328,11 @@ public class JFrameVentas extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItemCerrarSesion;
     private javax.swing.JMenuItem jMenuItemClientes;
     private javax.swing.JMenuItem jMenuItemEmpleados;
+    private javax.swing.JMenuItem jMenuItemNuevaCompra;
     private javax.swing.JMenuItem jMenuItemNuevaVenta;
     private javax.swing.JMenuItem jMenuItemProductos;
     private javax.swing.JMenuItem jMenuItemProveedores;
+    private javax.swing.JMenuItem jMenuItemRevisarCompras;
     private javax.swing.JMenuItem jMenuItemRevisarVentas;
     private javax.swing.JMenuItem jMenuItemUsuarios;
     // End of variables declaration//GEN-END:variables

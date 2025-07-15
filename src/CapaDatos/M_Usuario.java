@@ -16,8 +16,17 @@ public class M_Usuario {
     private String pass;
     private String acceso;
     private String estado;
+    private String correo;
 
     public M_Usuario() {
+    }
+
+    public String getCorreo() {
+        return correo;
+    }
+
+    public void setCorreo(String correo) {
+        this.correo = correo;
     }
 
     public M_Usuario(int id, String idEmpleado, String usuario, String pass, String acceso, String estado) {
@@ -28,6 +37,8 @@ public class M_Usuario {
         this.acceso = acceso;
         this.estado = estado;
     }
+
+    
 
     public int getId() {
         return id;

@@ -51,13 +51,12 @@ public class N_Venta implements IN_Venta {
                 return false;
             }
 
-            sql = ("select max(idventa) as id from ventas");
+            sql = ("select max(idventa) from ventas");
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(sql);
             if (rs.next()) {
-                dts.setId(rs.getInt("idventa") + 1);
+                dts.setId(rs.getInt(1));
             }
-
             dts.getDetalle().forEach(detalle -> {
                 try {
                     String busqueda = ("{call sp_guardar_detalle_venta (?,?,?)}");
@@ -65,6 +64,7 @@ public class N_Venta implements IN_Venta {
                     ps.setInt(1, dts.getId());
                     ps.setString(2, detalle.getIdproducto());
                     ps.setInt(3, detalle.getCantidad());
+                    ps.executeUpdate();
                 } catch (Exception e) {
                     JOptionPane.showConfirmDialog(null, e);
 
@@ -79,26 +79,26 @@ public class N_Venta implements IN_Venta {
 
         }
     }
-    
-    public String generarNumero(String tipo){
-        
-        String sql=("{call sp_buscar_venta_ultimo_documento ("+tipo+")}");
-        
+
+    public String generarNumero(String tipo) {
+
+        String sql = ("{call sp_buscar_venta_ultimo_documento (" + tipo + ")}");
+
         DecimalFormat formato = new DecimalFormat("0000");
-        String res[]=new String[2];
-        try{
-            Statement st=cn.createStatement();
-            ResultSet rs=st.executeQuery(sql);
-            if(rs.next()){
-                res=rs.getString(1).split("-");
+        String res[] = new String[2];
+        try {
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(sql);
+            if (rs.next()) {
+                res = rs.getString(1).split("-");
             } else {
                 return tipo.equalsIgnoreCase("B") ? "B001-0001" : "F001-0001";
             }
-            
-        }catch (SQLException el){
-           JOptionPane.showMessageDialog(null,"Error sql: "+ el.getMessage());
+
+        } catch (SQLException el) {
+            JOptionPane.showMessageDialog(null, "Error sql: " + el.getMessage());
         }
-        return res[0]+"-"+formato.format(Integer.parseInt(res[1])+1);
+        return res[0] + "-" + formato.format(Integer.parseInt(res[1]) + 1);
     }
 
     @Override
@@ -112,15 +112,64 @@ public class N_Venta implements IN_Venta {
     }
 
     @Override
-    public DefaultTableModel listar() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public DefaultTableModel buscar(String buscar) {
+        
+    DefaultTableModel modelo;
+    
+        String[] titulos = {"ID", "FECHA", "HORA", "SERIE", "NUM DOC", "TIPO DOC", "SUBTOTAL", "IGV", "TOTAL", "ESTADO","USUARIO","CLIENTE"};
+        modelo = new DefaultTableModel(null, titulos);
+        String[] registro = new String[12];
+        
+        sql=("sp_buscar_ventas'"+ buscar +"'");
+        try{
+            Statement st=cn.createStatement();
+            ResultSet rs=st.executeQuery(sql);
+            
+            while(rs.next()){
+                registro[0]=rs.getString(1);
+                registro[1]=rs.getString(2);
+                registro[2]=rs.getString(3);
+                registro[3]=rs.getString(4);
+                registro[4]=rs.getString(5);
+                registro[5]=rs.getString(6);
+                registro[6]=rs.getString(7);
+                registro[7]=rs.getString(8);
+                registro[8]=rs.getString(9);
+                registro[9]=rs.getString(10);
+                registro[10]=rs.getString(11);
+                registro[11]=rs.getString(12);
+                modelo.addRow(registro);
+            }
+            return modelo;
+        }catch (Exception e) {
+            JOptionPane.showConfirmDialog(null, e);
+            return null;
+        }
     }
 
     @Override
     public M_Venta buscar(int id) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
-    
-    
+
+    @Override
+    public boolean modificarEstado(int idVenta, String estado) {
+        try {
+            sql = ("{call sp_actualizar_estado_venta (?,?)}");
+            PreparedStatement pst = cn.prepareStatement(sql);
+            
+            pst.setInt(1, idVenta);
+            pst.setString(2, estado);
+
+            int n = pst.executeUpdate();
+
+            return n != 0;
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+            return false;
+
+        }
+    }
 
 }

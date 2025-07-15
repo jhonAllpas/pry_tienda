@@ -16,7 +16,8 @@ public interface IN_Venta {
     boolean insertar(M_Venta dts);
     boolean modificar(M_Venta dts);
     boolean eliminar(int id);
-    DefaultTableModel listar();
+    DefaultTableModel buscar(String buscar);
     M_Venta buscar(int id);
+    boolean modificarEstado(int idVenta, String estado);
     
 }

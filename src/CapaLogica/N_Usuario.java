@@ -168,8 +168,27 @@ public class N_Usuario implements IN_Usuario {
         
     }
     @Override
-    public M_Usuario buscar(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public M_Usuario buscar(String nombre) {
+        sql=("sp_buscar_usuarios '"+nombre+"'");
+        try{
+            Statement st=cn.createStatement();
+            ResultSet rs=st.executeQuery(sql);
+            M_Usuario usu = new M_Usuario();
+            
+            while(rs.next()){
+                usu.setId(rs.getInt(1));
+                usu.setIdEmpleado(rs.getString(2));
+                usu.setUsuario(rs.getString(3));
+                usu.setAcceso(rs.getString(5));
+                usu.setEstado(rs.getString(6));
+                usu.setCorreo(rs.getString(7));
+            }
+            return usu;
+        }catch (Exception e) {
+            JOptionPane.showConfirmDialog(null, e);
+            return null;
+        }
+                
     }
 
     @Override

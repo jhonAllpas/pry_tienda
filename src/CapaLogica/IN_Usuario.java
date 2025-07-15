@@ -20,7 +20,7 @@ public interface IN_Usuario {
     boolean eliminar(int id);
     List<M_Usuario> listar();
     DefaultTableModel mostrar(String nombre);
-    M_Usuario buscar(int id); 
+    M_Usuario buscar(String nomrbe); 
     boolean iniciarSesion (String usuario, String contrasena);
     
 }

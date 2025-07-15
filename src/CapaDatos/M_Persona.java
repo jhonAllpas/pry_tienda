@@ -16,19 +16,30 @@ public class M_Persona {
     private String dni;
     private String telefono;
     private String direccion;
+    private String correo;
+
+    public String getCorreo() {
+        return correo;
+    }
+
+    public void setCorreo(String correo) {
+        this.correo = correo;
+    }
 
     public M_Persona() {
     }
 
-    public M_Persona(String id, String nombre, String apellidos, String dni, String telefono, String direccion) {
+    public M_Persona(String id, String nombre, String apellidos, String dni, String telefono, String direccion, String correo) {
         this.id = id;
         this.nombre = nombre;
         this.apellidos = apellidos;
         this.dni = dni;
         this.telefono = telefono;
         this.direccion = direccion;
+        this.correo = correo;
     }
 
+    
     
     
     public String getId() {

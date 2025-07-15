@@ -19,12 +19,14 @@ public class M_Cliente extends M_Persona {
         this.edad = edad;
     }
 
-    public M_Cliente(String ruc, String sexo, int edad, String id, String nombre, String apellidos, String dni, String telefono, String direccion) {
-        super(id, nombre, apellidos, dni, telefono, direccion);
+    public M_Cliente(String ruc, String sexo, int edad, String id, String nombre, String apellidos, String dni, String telefono, String direccion, String correo) {
+        super(id, nombre, apellidos, dni, telefono, direccion, correo);
         this.ruc = ruc;
         this.sexo = sexo;
         this.edad = edad;
     }
+
+    
 
     public String getRuc() {
         return ruc;
