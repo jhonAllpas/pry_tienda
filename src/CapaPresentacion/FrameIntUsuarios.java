@@ -117,6 +117,8 @@ public class FrameIntUsuarios extends javax.swing.JInternalFrame {
         btneliminar = new javax.swing.JButton();
         cboEstado = new javax.swing.JComboBox<>();
         cboAcceso = new javax.swing.JComboBox<>();
+        jLabel8 = new javax.swing.JLabel();
+        txtCorreo = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         txtbuscar = new javax.swing.JTextField();
         btnbuscar = new javax.swing.JButton();
@@ -156,6 +158,8 @@ public class FrameIntUsuarios extends javax.swing.JInternalFrame {
         jLabel2.setText("Usuario:");
 
         jLabel3.setText("Acceso:");
+
+        txtIdUsuario.setEditable(false);
 
         jLabel4.setText("Empleado:");
 
@@ -198,6 +202,8 @@ public class FrameIntUsuarios extends javax.swing.JInternalFrame {
             }
         });
 
+        jLabel8.setText("Correo");
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -217,17 +223,23 @@ public class FrameIntUsuarios extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel5))
-                        .addGap(19, 19, 19))
+                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtCorreo))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(txtIdEmpleado)
-                    .addComponent(txtContrasena)
-                    .addComponent(cboEstado, 0, 205, Short.MAX_VALUE))
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel5))
+                                .addGap(19, 19, 19))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtIdEmpleado)
+                            .addComponent(txtContrasena)
+                            .addComponent(cboEstado, 0, 205, Short.MAX_VALUE))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 59, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnnuevo)
@@ -259,7 +271,14 @@ public class FrameIntUsuarios extends javax.swing.JInternalFrame {
                     .addComponent(btneliminar)
                     .addComponent(cboEstado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(cboAcceso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(31, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jLabel8))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(txtCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
 
         jLabel7.setText("Buscar por Nombre:");
@@ -298,7 +317,7 @@ public class FrameIntUsuarios extends javax.swing.JInternalFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(29, 29, 29)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(29, 29, 29)
+                .addGap(20, 20, 20)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
                     .addComponent(txtbuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -306,7 +325,7 @@ public class FrameIntUsuarios extends javax.swing.JInternalFrame {
                     .addComponent(btnsalir))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 314, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(15, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel2.getAccessibleContext().setAccessibleDescription("");
@@ -364,6 +383,11 @@ public class FrameIntUsuarios extends javax.swing.JInternalFrame {
             txtContrasena.requestFocus();
             return;
         }
+        if (txtCorreo.getText().length() == 0) {
+            JOptionPane.showConfirmDialog(rootPane, "Ingrese correo para usuario");
+            txtCorreo.requestFocus();
+            return;
+        }
         M_Usuario dts = new M_Usuario();
         N_Usuario func = new N_Usuario();
 
@@ -373,6 +397,7 @@ public class FrameIntUsuarios extends javax.swing.JInternalFrame {
         dts.setAcceso(cboAcceso.getSelectedItem().toString());
         dts.setEstado(cboEstado.getSelectedItem().toString());
                 dts.setPass(txtContrasena.getText());
+               dts.setCorreo(txtCorreo.getText());
 
         if (accion.equals("guardar")) {
 
@@ -454,10 +479,12 @@ public class FrameIntUsuarios extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tablalistado;
     private javax.swing.JTextField txtContrasena;
+    private javax.swing.JTextField txtCorreo;
     private javax.swing.JTextField txtIdEmpleado;
     private javax.swing.JTextField txtIdUsuario;
     private javax.swing.JTextField txtUsuario;

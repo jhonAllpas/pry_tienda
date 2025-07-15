@@ -108,7 +108,21 @@ public class N_Venta implements IN_Venta {
 
     @Override
     public boolean eliminar(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        try {
+            sql = ("{call sp_eliminar_venta (?)}");
+            PreparedStatement pst = cn.prepareStatement(sql);
+            
+            pst.setInt(1, id);
+
+            int n = pst.executeUpdate();
+
+            return n != 0;
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+            return false;
+
+        }
     }
 
     @Override

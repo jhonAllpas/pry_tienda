@@ -138,7 +138,7 @@ public class FrameIntMostrarCompras extends javax.swing.JInternalFrame {
     private void btnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarActionPerformed
         // TODO add your handling code here:
         String estado = cboEstado.getSelectedItem().toString();
-        int idCompra =Integer.parseInt( tblLista.getModel().getValueAt(tblLista.getSelectedRowCount(), 0).toString());
+        int idCompra =Integer.parseInt( tblLista.getModel().getValueAt(tblLista.getSelectedRow(), 0).toString());
         new N_Compra().modificarEstado(idCompra, estado);
         mostrar("");
     }//GEN-LAST:event_btnActualizarActionPerformed
@@ -153,7 +153,10 @@ public class FrameIntMostrarCompras extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnsalirActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
-        // TODO add your handling code here:
+        N_Compra compra = new N_Compra();
+        int idCompra =Integer.parseInt( tblLista.getModel().getValueAt(tblLista.getSelectedRow(), 0).toString());
+        compra.eliminar(idCompra);
+        mostrar("");
     }//GEN-LAST:event_btnEliminarActionPerformed
 
 

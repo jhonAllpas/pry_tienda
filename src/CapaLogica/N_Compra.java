@@ -86,7 +86,22 @@ public class N_Compra implements IN_Compra {
 
     @Override
     public boolean eliminar(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        
+        try {
+            sql = ("{call sp_eliminar_compra (?)}");
+            PreparedStatement pst = cn.prepareStatement(sql);
+            
+            pst.setInt(1, id);
+
+            int n = pst.executeUpdate();
+
+            return n != 0;
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+            return false;
+
+        }
     }
 
     @Override
@@ -132,7 +147,7 @@ public class N_Compra implements IN_Compra {
     public boolean modificarEstado(int idCompra, String estado) {
         
         try {
-            sql = ("{call sp_actualizar_estado_compra (?,?)}");
+            sql = ("{call sp_actualizar_est_compra (?,?)}");
             PreparedStatement pst = cn.prepareStatement(sql);
             
             pst.setInt(1, idCompra);

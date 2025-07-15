@@ -140,13 +140,18 @@ public class FrameIntMostrarVentas extends javax.swing.JInternalFrame {
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
         // TODO add your handling code here:
+        N_Venta venta = new N_Venta();
+        int idVenta =Integer.parseInt( tblLista.getModel().getValueAt(tblLista.getSelectedRow(), 0).toString());
+        venta.eliminar(idVenta);
+        mostrar("");
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void btnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarActionPerformed
         // TODO add your handling code here:
         String estado = cboEstado.getSelectedItem().toString();
-        int idVenta =Integer.parseInt( tblLista.getModel().getValueAt(tblLista.getSelectedRowCount(), 0).toString());
-        new N_Venta().modificarEstado(idVenta, estado);
+        int idVenta =Integer.parseInt( tblLista.getModel().getValueAt(tblLista.getSelectedRow(), 0).toString());
+        N_Venta venta =  new N_Venta();
+        venta.modificarEstado(idVenta, estado);
         mostrar("");
     }//GEN-LAST:event_btnActualizarActionPerformed
 

@@ -598,6 +598,7 @@ public class FrameIntCompra extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
         String idProducto = tablalistadoProducto.getModel().getValueAt(tablalistadoProducto.getSelectedRow(), 0).toString();
         detalleProductos = detalleProductos.stream().filter(det -> !det.getIdproducto().equals(idProducto)).collect(Collectors.toList());
+        mostrarDetalleCompra();
         mostrarTotales();
     }//GEN-LAST:event_btnEliminarActionPerformed
 

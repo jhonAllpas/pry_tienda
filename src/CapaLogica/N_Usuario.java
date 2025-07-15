@@ -48,7 +48,7 @@ public class N_Usuario implements IN_Usuario {
     @Override
     public boolean insertar(M_Usuario dts) {
       
-        sql=("{call sp_guardar_usuario (?,?,?,?,?)}");
+        sql=("{call sp_guardar_usuario (?,?,?,?,?,?)}");
         try{
             PreparedStatement pst=cn.prepareStatement(sql);
             pst.setString(1,dts.getIdEmpleado());
@@ -56,6 +56,7 @@ public class N_Usuario implements IN_Usuario {
             pst.setString(3,dts.getPass());
             pst.setString(4,dts.getAcceso());
             pst.setString(5,dts.getEstado());
+            pst.setString(6,dts.getCorreo());
             
             int n = pst.executeUpdate();
             
@@ -75,7 +76,7 @@ public class N_Usuario implements IN_Usuario {
 
     @Override
     public boolean editar(M_Usuario dts) {
-        sql=("{call sp_editar_usuario (?,?,?,?,?,?)}");
+        sql=("{call sp_editar_usuario (?,?,?,?,?,?,?)}");
         try{
             PreparedStatement pst=cn.prepareStatement(sql);
             
@@ -85,6 +86,7 @@ public class N_Usuario implements IN_Usuario {
             pst.setString(4,dts.getAcceso());
             pst.setString(5,dts.getEstado());
             pst.setInt(6,dts.getId());
+            pst.setString(7, dts.getCorreo());
             
             int n = pst.executeUpdate();
             
